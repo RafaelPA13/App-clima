@@ -13,36 +13,42 @@ const condicaoDoTempo = document.getElementById('condicaoTempo')
 const elementoUmidade = document.querySelector('#umidade span')
 const elementoVento = document.querySelector('#vento span')
 
-const elementoData = document.getElementById('data')
-const elementoHora = document.getElementById('hora')
-
-//Pegando e mostrando data e hora de hoje
-const data = new Date()
-const dataDeHoje = data.toLocaleDateString('pt-br')
-elementoData.innerText = dataDeHoje
-
-const horas = data.getHours()
-const minutos = data.getMinutes() 
-if(horas < 10 || minutos < 10){
-    elementoHora.innerText == `0${horas}:0${minutos}`
-}
-else{
-    elementoHora.innerText = `${horas}:${minutos}`
-}
-
-//Array com as 10 maiores capitais
+//Ler as capitais do mundo e imprimir a temperatura 
 const capitais = [
-    {Nome: 'Londres', Bandeira: 'https://flagsapi.com/GB/flat/64.png'},
-    {Nome: 'Paris', Bandeira: 'https://flagsapi.com/FR/flat/64.png'},
-    {Nome: 'Hong Kong', Bandeira: 'https://flagsapi.com/CH/flat/64.png'},
-    {Nome: 'Madri', Bandeira: 'https://flagsapi.com/ES/flat/64.png'},
-    {Nome: 'Roma', Bandeira: 'https://flagsapi.com/IT/flat/64.png'},
-    {Nome: 'Seul', Bandeira: 'https://flagsapi.com/KR/flat/64.png'},
-    {Nome: 'Nova York', Bandeira: 'https://flagsapi.com/US/flat/64.png'},
-    {Nome: 'Amisterdã', Bandeira: 'https://flagsapi.com/NL/flat/64.png'},
-    {Nome: 'Tóquio', Bandeira: 'https://flagsapi.com/JP/flat/64.png'},
-    {Nome: 'Brasília', Bandeira: 'https://flagsapi.com/BR/flat/64.png'}
+    {nome: 'Londres', bandeira: 'https://flagsapi.com/GB/flat/64.png'},
+    {nome: 'Paris', bandeira: 'https://flagsapi.com/FR/flat/64.png'},
+    {nome: 'Pequim', bandeira: 'https://flagsapi.com/CN/flat/64.png'},
+    {nome: 'Madrid', bandeira: 'https://flagsapi.com/ES/flat/64.png'},
+    {nome: 'Milão', bandeira: 'https://flagsapi.com/IT/flat/64.png'},
+    {nome: 'Seul', bandeira: 'https://flagsapi.com/KR/flat/64.png'},
+    {nome: 'Nova York', bandeira: 'https://flagsapi.com/US/flat/64.png'},
+    {nome: 'Amsterdam', bandeira: 'https://flagsapi.com/NL/flat/64.png'},
+    {nome: 'Tóquio', bandeira: 'https://flagsapi.com/JP/flat/64.png'},
+    {nome: 'Brasília', bandeira: 'https://flagsapi.com/BR/flat/64.png'}
 ]
+
+capitais.map(capital => {
+    const div = document.querySelector('ul')
+    const btn = document.createElement('button')
+    const h2 = document.createElement('h2')
+    const img = document.createElement('img')
+
+    img.src = capital.bandeira
+    h2.innerHTML = capital.nome
+    img.value = capital.nome
+    h2.value = capital.nome
+    btn.value = capital.nome
+
+    btn.appendChild(img)
+    btn.appendChild(h2)
+    div.appendChild(btn)
+
+    btn.addEventListener('click', (e)=>{
+        e.preventDefault()
+        const cidade = e.target.value
+        mostrarDados(cidade)
+    })
+})
 
 //Função para pegar os dados da api
 async function pegarDados(cidade){
