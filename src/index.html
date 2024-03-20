@@ -18,38 +18,31 @@
       <button id="btnPesquisa">
         <i class="fa-solid fa-magnifying-glass"></i>
       </button>
+      <div class="clima">
+        <h1>
+          <span id="cidade"></span>
+          <img src="" alt="bandeira" id="pais" />
+        </h1>
+        <div class="temperatura">
+          <img src="" alt="icone de temperatura" id="iconeTemperatura" />
+          <p id="temperatura"></p>
+        </div>
+        <p id="condicaoTempo"></p>
+        <div class="umidadeEVento">
+          <p id="umidade">
+            <i class="fa-solid fa-droplet"></i>
+            <span></span>
+          </p>
+          <p id="vento">
+            <i class="fa-solid fa-wind"></i>
+            <span></span>
+          </p>
+        </div>
+      </div>
     </header>
-
-    <div class="clima">
-      <h1>
-        <span id="cidade"></span>
-        <img src="" alt="bandeira" id="pais" />
-      </h1>
-      <div class="temperatura">
-        <img src="" alt="icone de temperatura" id="iconeTemperatura" />
-        <p id="temperatura"></p>
-      </div>
-      <p id="condicaoTempo"></p>
-      <div class="umidadeEVento">
-        <p id="umidade">
-          <i class="fa-solid fa-droplet"></i>
-          <span></span>
-        </p>
-        <p id="vento">
-          <i class="fa-solid fa-wind"></i>
-          <span></span>
-        </p>
-      </div>
-    </div>
-
-    <h2 class="dataEHora">
-      <span id="hora"></span>
-        <span id="data"></span>
-    </h2>
-
-    <ul class="listaDeCapitais">
-        
-    </ul>
+    <main>
+      <div class="listaDeCapitais"></div>
+    </main>
     <script src="script.js"></script>
   </body>
 </html>
