@@ -12,6 +12,8 @@ const elementoTemperatura = document.getElementById("temperatura");
 const condicaoDoTempo = document.getElementById("condicaoTempo");
 const elementoUmidade = document.querySelector("#umidade span");
 const elementoVento = document.querySelector("#vento span");
+const termometro = document.getElementById('termometro')
+const clima = document.getElementById('clima')
 
 //Lista de capitais do mundo
 const capitais = [
@@ -56,6 +58,9 @@ async function pegarDados(cidade) {
 async function mostrarDados(cidade) {
   try {
     const data = await pegarDados(cidade);
+
+    termometro.classList.add('esconder')
+    clima.classList.add('clima')
 
     elementoCidade.textContent = data.name;
     elementoPais.setAttribute("src", `https://flagsapi.com/${data.sys.country}/flat/64.png`);

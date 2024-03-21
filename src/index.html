@@ -20,18 +20,24 @@
       rel="stylesheet"
     />
     <!-- Importe do CSS -->
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <header>
       <div class="pesquisa">
-        <input type="text" id="barraPesquisa" placeholder="Digite uma cidade:"/>
+        <input
+          type="text"
+          id="barraPesquisa"
+          placeholder="Digite uma cidade:"
+        />
         <button id="btnPesquisa">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </div>
 
-      <div class="clima">
+      <img id="termometro" src="./images/termometro.png" alt="termometro" />
+
+      <div class="esconder" id="clima">
         <p class="cidade">
           <span id="cidade"></span>
           <img src="" alt="bandeira" id="pais" />
