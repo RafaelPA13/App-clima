@@ -151,8 +151,8 @@ main {
 }
 
 .listaDeCapitais button {
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
 
   background-color: rgb(245, 245, 245);
   border: none;
@@ -166,4 +166,31 @@ main {
   background-color: rgb(205, 205, 205);
 }
 
+@media (max-width: 767px) {
+  #barraPesquisa {
+    width: 75%;
+  }
 
+  #termometro{
+    width: 200px;
+  }
+
+  main {
+    height: 50%;
+    padding: 20px;
+  }
+
+  .listaDeCapitais {
+    width: 75%;
+    height: 50%;
+
+    gap: 10px;
+  }
+
+  .listaDeCapitais button {
+    width: 100px;
+    height: 100px;
+
+    font-size: 10px;
+  }
+}
