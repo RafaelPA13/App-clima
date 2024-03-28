@@ -12,8 +12,10 @@ const elementoTemperatura = document.getElementById("temperatura");
 const condicaoDoTempo = document.getElementById("condicaoTempo");
 const elementoUmidade = document.querySelector("#umidade span");
 const elementoVento = document.querySelector("#vento span");
+
 const termometro = document.getElementById('termometro')
 const clima = document.getElementById('clima')
+const erro = document.getElementById('erro')
 
 //Lista de capitais do mundo
 const capitais = [
@@ -45,6 +47,25 @@ capitais.map((capital) => {
   btn.addEventListener("click", () => {mostrarDados(capital.nome);});
 });
 
+//Função de mudança de classes
+function mudarClasses({classeClima, classeErro, classeTermometro}) {
+  const classesParaRemover = [
+    'clima', 
+    'esconder',
+    'erro'
+  ]
+
+  classesParaRemover.forEach((classeParaRemover)=>{
+    clima.classList.remove(classeParaRemover)
+    erro.classList.remove(classeParaRemover)
+    termometro.classList.remove(classeParaRemover)
+  })
+
+  clima.classList.add(classeClima)
+  erro.classList.add(classeErro)
+  termometro.classList.add(classeTermometro)
+}
+
 //Função para pegar os dados da api
 async function pegarDados(cidade) {
   const urlDaAPI = `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&units=metric&appid=${chaveDaAPI}&lang=pt_br`;
@@ -59,8 +80,7 @@ async function mostrarDados(cidade) {
   try {
     const data = await pegarDados(cidade);
 
-    termometro.classList.add('esconder')
-    clima.classList.add('clima')
+    mudarClasses({classeClima: 'clima', classeErro: 'esconder', classeTermometro: 'esconder'})
 
     elementoCidade.textContent = data.name;
     elementoPais.setAttribute("src", `https://flagsapi.com/${data.sys.country}/flat/64.png`);
@@ -70,7 +90,7 @@ async function mostrarDados(cidade) {
     elementoUmidade.textContent = `${data.main.humidity}%`;
     elementoVento.textContent = `${parseInt(data.wind.speed)}km/h`;
   } catch (error) {
-    console.log("A forma como você digitou o nome da cidade pode estar errada, tente escrevê-la novamente.");
+    mudarClasses({classeClima: 'esconder', classeErro: 'erro', classeTermometro: 'esconder'})
   }
 }
 

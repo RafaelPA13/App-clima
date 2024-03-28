@@ -67,6 +67,18 @@ header {
   display: none;
 }
 
+.erro {
+  width: 75%;
+
+  text-align: center;
+  background-color: rgb(232, 0, 0);
+  border: 2px solid rgb(109, 0, 0);
+  border-radius: 15px;
+  padding: 10px;
+
+  color: rgb(109, 0, 0);
+}
+
 .clima {
   display: flex;
   flex-direction: column;
@@ -171,7 +183,7 @@ main {
     width: 75%;
   }
 
-  #termometro{
+  #termometro {
     width: 200px;
   }
 
