@@ -1,4 +1,4 @@
-# Adivinhe o Número 
+# App Clima
 
 Digite uma cidade ou escolha uma das capitais mais famosas do mundo e descubra a temperatura das mesmas.
 
